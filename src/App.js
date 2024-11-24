@@ -6,7 +6,14 @@ import Header from "./Components/Header.js";
 
 function App() {
   return (
-    <div>
+    <div
+      style={{
+        justifyContent: "center", // Center horizontally
+        display: "flex",
+        background: "pink",
+        height: "100vh",
+      }}
+    >
       <Header />
       <Body />
       <Footer />
