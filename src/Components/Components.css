@@ -1,0 +1,35 @@
+@font-face {
+    font-family: 'Rubik';
+    src: url('../Fonts/lets-eat/Lets Eat.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1{
+    font-family: 'Rubik', sans-serif;
+    font-size: 100px;
+}
+
+
+.fadeintext{
+    animation: fadeIn 5s;
+}
+
+.fadebutton{
+    animation: fadeInButton 20s;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  @keyframes fadeInButton {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+.startButton{
+    font-family: 'Rubik', sans-serif;
+    font-size: 30px;
+}
