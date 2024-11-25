@@ -5,7 +5,6 @@ import AnimalPurpose from "../Data/AnimalPurposes.json";
 
 export default function Body() {
   const URL = "https://teachablemachine.withgoogle.com/models/K31bjxpYW/";
-  //let model, webcam, labelContainer, maxPredictions;
   const stringExample = "stringexample";
   const [webcamReady, setWebcamReady] = useState(false);
   const [model, setModel] = useState(false);
@@ -40,15 +39,9 @@ export default function Body() {
 
   async function init() {
     if (!webCam) {
-      // checking on react variable since let doesn't hold the info
       setInitCalled(true);
       const modelURL = URL + "model.json";
       const metadataURL = URL + "metadata.json";
-
-      // load the model and metadata
-      // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
-      // or files from your local hard drive
-      // Note: the pose library adds "tmImage" object to your window (window.tmImage)
       let m = await tmImage.load(modelURL, metadataURL);
       let mp = m.getTotalClasses();
 
@@ -93,24 +86,12 @@ export default function Body() {
   }
 
   async function predict(wc) {
-    // predict can take in an image, video or canvas html element
-    console.log("webCam = ", wc);
-
     const prediction = await model.predict(wc.canvas);
-    // for (let i = 0; i < maxPredictions; i++) {
-    //   const classPrediction =
-    //     prediction[i].className + ": " + prediction[i].probability.toFixed(2);
-    //   labelContainer.childNodes[i].innerHTML = classPrediction;
-    // }
-
     return prediction;
   }
 
   async function snap() {
     if (webCam) {
-      //console.log("webcam = ", webcam);
-      console.log("webCam = ", webCam);
-      // webCam.update();
       const predics = await predict(webCam);
       webCam.stop();
 
